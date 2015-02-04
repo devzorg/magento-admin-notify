@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mage Dev Solutions
+ *
+ * @author      Oleg Batishchev <info@magedev.ru>
+ * @namespace   Magedev_Notifydisabler
+ * @copyright   Copyright (c) 2015 Mage Dev Solutions (http://magedev.ru)
+ */
+ -->
+<config>
+    <modules>
+        <Magedev_Notifydisabler>
+            <version>0.1.0</version>
+        </Magedev_Notifydisabler>
+    </modules>
+    <global>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <magedev_notifydisabler>
+                    <file>magedev_notifydisabler.xml</file>
+                </magedev_notifydisabler>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mage Dev Solutions
+ *
+ * @author      Oleg Batishchev <info@magedev.ru>
+ * @namespace   Magedev_Notifydisabler
+ * @copyright   Copyright (c) 2015 Mage Dev Solutions (http://magedev.ru)
+ */
+ -->
+<layout>
+    <default>
+        <remove name="notification_window"/>
+    </default>
+</layout>
