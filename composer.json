@@ -1,0 +1,36 @@
+{
+    "name": "devzorg/magento-admin-notify",
+    "type": "magento-module",
+    "license":"MIT",
+    "description":"Magento modules that removes the popup notify on back office.",
+    "homepage":"http://magedev.ru/",
+    "keywords": ["magento", "admin", "notify", "notifies"],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "require-dev": {
+        //"ecomdev/ecomdev_phpunit": "*",
+        "ecomdev/mage-ci": "master-dev"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.firegento.com"
+        }
+    ],
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "magento-root-dir": "test/"
+    },
+    "minimum-stability": "dev",
+    "authors":[
+        {
+            "name":"Oleg Batishchev",
+            "email":"info@magedev.ru",
+            "homepage":"http://magedev.ru",
+            "role": "developer"
+        }
+    ]
+}
