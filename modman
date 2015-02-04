@@ -1,0 +1,3 @@
+app/code/community/Magedev/Notifydisabler   app/code/community/Magedev/Notifydisabler
+app/design/adminhtml/base/default/layout/magedev_notifydisabler.xml app/design/adminhtml/base/default/layout/magedev_notifydisabler.xml
+app/etc/modules/Magedev_Notifydisabler.xml  app/etc/modules/Magedev_Notifydisabler.xml
