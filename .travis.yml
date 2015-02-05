@@ -24,7 +24,7 @@ before_install:
 
 install:
   - composer install
-  - bin/mage-ci install magento/"$MAGE" $MAGE `echo $MAGE|sed -e 's/[\.]//g'` -c -t -r http://mage-ci.magedev.ru
+  - bin/mage-ci install magento/"$MAGE" $MAGE test`echo $MAGE|sed -e 's/[\.]//g'` -r http://mage-ci.magedev.ru
   - cd magento/"$MAGE"
   - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
   - chmod +x modman
@@ -42,6 +42,7 @@ before_script:
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use
 script:
+
 #  - phpcs --standard=Zend -n app/
 #  - phpmd app/ text codesize,design,unusedcode
 #  - phpcpd app/
