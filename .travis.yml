@@ -1,5 +1,6 @@
 # see http://about.travis-ci.org/docs/user/languages/php/ for more hints
 language: php
+sudo: false
 
 # list any PHP version you want to test against
 php:
@@ -7,6 +8,7 @@ php:
   - 5.4
 #  - 5.5
 #  - hhvm
+
 
 env:
   - MAGE=1.9.1.0
@@ -23,10 +25,8 @@ install:
   - composer selfupdate
   - composer install
   - bin/mage-ci install magento/"$MAGE" $MAGE test`echo $MAGE|sed -e 's/[\.]//g'` -c -t -r http://mage-ci.magedev.ru
-  - PWD=`pwd`
-  - cd ~
   - bash < <(wget -q --no-check-certificate -O - https://raw.github.com/colinmollenhour/modman/master/modman-installer)
-  - cd $PWD/magento/"$MAGE"
+  - cd magento/"$MAGE"
   - modman init
 
 before_script:
