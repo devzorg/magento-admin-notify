@@ -17,12 +17,12 @@ env:
 
 before_install:
   - mkdir test/
-  - composer install --dev
-  - curl https://gordonlesti.com/"$MAGE".tar.gz | tar xz
+  - composer self-update
   - mv $MAGE magento
 
 install:
-  - composer self-update
+  - composer install --dev
+#  - curl https://gordonlesti.com/"$MAGE".tar.gz | tar xz
   - bin/mage-ci install magento/$MAGE "$MAGE" test"$MAGE" -c -t -r http://mage-ci.ecomdev.org
   - cd magento/$MAGE
   - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
