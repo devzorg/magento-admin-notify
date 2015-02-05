@@ -43,15 +43,13 @@ before_script:
 
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use
-script:
-  - exit 0
+script: true
 
 #  - phpcs --standard=Zend -n app/
 #  - phpmd app/ text codesize,design,unusedcode
 #  - phpcpd app/
 
-after_script:
-#  - coveralls
+#after_script: true
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
