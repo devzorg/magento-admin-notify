@@ -42,13 +42,12 @@ before_script:
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use
 script:
-  - phpcs --standard=Zend -n app/
-  - phpmd app/ text codesize,design,unusedcode
-  - phpcpd app/
-  - cd magento && php ../vendor/bin/phpunit --coverage-clover ../build/logs/clover.xml && cd ..
+#  - phpcs --standard=Zend -n app/
+#  - phpmd app/ text codesize,design,unusedcode
+#  - phpcpd app/
 
 after_script:
-  - coveralls
+#  - coveralls
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
