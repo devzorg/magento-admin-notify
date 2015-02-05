@@ -3,9 +3,9 @@ language: php
 
 # list any PHP version you want to test against
 php:
-  - 5.3
+#  - 5.3
   - 5.4
-  - 5.5
+#  - 5.5
   - hhvm
 
 env:
@@ -13,8 +13,8 @@ env:
   - MAGE=magento-1-9-0-1
   - MAGE=magento-1-8-1-0
   - MAGE=magento-1-7-0-2
-  - MAGE=magento-1-6-2-0
-  - MAGE=magento-1-5-1-0
+#  - MAGE=magento-1-6-2-0
+#  - MAGE=magento-1-5-1-0
 
 before_install:
   - mkdir test/
