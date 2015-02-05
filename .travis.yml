@@ -25,7 +25,7 @@ before_install:
 
 install:
   - composer install
-  - bin/mage-ci install magento/$DB_MAGE $DB_MAGE test -r http://mage-ci.magedev.ru
+  - bin/mage-ci install magento/$DB_MAGE $MAGE test$DB_MAGE -r http://mage-ci.magedev.ru
   - cd magento/$DB_MAGE
   - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
   - chmod +x modman
