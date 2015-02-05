@@ -21,10 +21,11 @@ before_install:
   - mkdir test/
   - mkdir -p build/logs
   - composer self-update
+  - VERS=$(`echo $MAGE|sed -e 's/[\.]//g'`)
 
 install:
   - composer install
-  - bin/mage-ci install magento/"$MAGE" $MAGE test`echo $MAGE|sed -e 's/[\.]//g'` -r http://mage-ci.magedev.ru
+  - bin/mage-ci install magento/"$MAGE" $MAGE test -r http://mage-ci.magedev.ru
   - cd magento/"$MAGE"
   - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
   - chmod +x modman
@@ -35,6 +36,7 @@ before_script:
   - pear install PHP_CodeSniffer
   - phpenv rehash
   - hhvm $(which composer) update
+  - mysql -e 'create database  IF NOT EXISTS test${VERS};'
 #  - cd magento
 #  - ./modman clone https://github.com/EcomDev/EcomDev_PHPUnit.git
 #  - cd ..
