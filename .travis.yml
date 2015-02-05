@@ -22,7 +22,7 @@ before_install:
 install:
   - composer install --dev
 #  - curl https://gordonlesti.com/"$MAGE".tar.gz | tar xz
-  - bin/mage-ci install magento/$MAGE `echo $MAGE|sed -e 's/[\.]//g'` test"$MAGE" -c -t -r http://mage-ci.ecomdev.org
+  - bin/mage-ci install magento/$MAGE $MAGE test`echo $MAGE|sed -e 's/[\.]//g'` -c -t -r http://mage-ci.ecomdev.org
   - cd magento/$MAGE
   - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
   - chmod +x modman
