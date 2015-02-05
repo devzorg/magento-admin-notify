@@ -25,7 +25,7 @@ before_install:
 
 install:
   - composer install
-  - bin/mage-ci install magento/$DB_MAGE $MAGE test$DB_MAGE -r http://mage-ci.magedev.ru
+  - bin/mage-ci install magento/$DB_MAGE $MAGE magento_$DB_MAGE -c -r http://mage-ci.magedev.ru
   - cd magento/$DB_MAGE
   - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
   - chmod +x modman
@@ -36,7 +36,6 @@ before_script:
   - pear install PHP_CodeSniffer
   - phpenv rehash
   - hhvm $(which composer) update
-  - mysql -e 'create database  IF NOT EXISTS test${VERS};'
 # $TRAVIS_BUILD_NUMBER
 #  - cd magento
 #  - ./modman clone https://github.com/EcomDev/EcomDev_PHPUnit.git
