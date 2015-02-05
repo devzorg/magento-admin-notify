@@ -20,20 +20,20 @@ before_install:
   - composer self-update
 
 install:
-  - composer install --dev
-#  - curl https://gordonlesti.com/"$MAGE".tar.gz | tar xz
-  - bin/mage-ci install magento/$MAGE $MAGE test`echo $MAGE|sed -e 's/[\.]//g'` -c -t -r http://mage-ci.magedev.ru
-  - cd magento/$MAGE
-  - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
-  - chmod +x modman
-  - ./modman init
-  - cd ..
+  - composer selfupdate
+  - composer install
+  - bin/mage-ci install magento/"$MAGE" $MAGE test`echo $MAGE|sed -e 's/[\.]//g'` -c -t -r http://mage-ci.magedev.ru
+  - PWD=`pwd`
+  - cd ~
+  - bash < <(wget -q --no-check-certificate -O - https://raw.github.com/colinmollenhour/modman/master/modman-installer)
+  - cd $PWD/magento/"$MAGE"
+  - modman init
 
 before_script:
-#http://www.magentocommerce.com/downloads/assets/1.9.1.0/magento-1.9.1.0.tar.gz
-  - composer selfupdate
-  - mkdir -p build/logs
   - composer update --ignore-platform-reqs
+  - mkdir -p build/logs
+  - pear install PHP_CodeSniffer
+  - phpenv rehash
   - hhvm $(which composer) update
 #  - cd magento
 #  - ./modman clone https://github.com/EcomDev/EcomDev_PHPUnit.git
