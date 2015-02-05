@@ -29,7 +29,7 @@ install:
   - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
   - chmod +x modman
   - ./modman init
-  - composer update --ignore-platform-reqs
+#  - composer update --ignore-platform-reqs
 
 before_script:
   - pear install PHP_CodeSniffer
