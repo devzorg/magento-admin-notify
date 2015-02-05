@@ -6,25 +6,24 @@ php:
 #  - 5.3
   - 5.4
 #  - 5.5
-  - hhvm
+#  - hhvm
 
 env:
   - MAGE=magento-1-9-1-0
-  - MAGE=magento-1-8-1-0
-  - MAGE=magento-1-7-0-2
+#  - MAGE=magento-1-8-1-0
+#  - MAGE=magento-1-7-0-2
 #  - MAGE=magento-1-6-2-0
 #  - MAGE=magento-1-5-1-0
 
 before_install:
   - mkdir test/
-  - composer self-update
-  - composer update
   - composer install --dev
   - curl https://gordonlesti.com/"$MAGE".tar.gz | tar xz
   - mv $MAGE magento
 
 install:
-  - bin/mage-ci install magento/$MAGE "$MAGE" mage_$MAGE -c -t -r http://mage-ci.ecomdev.org
+  - composer self-update
+  - bin/mage-ci install magento/$MAGE "$MAGE" test"$MAGE" -c -t -r http://mage-ci.ecomdev.org
   - cd magento/$MAGE
   - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
   - chmod +x modman
