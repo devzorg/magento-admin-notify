@@ -19,19 +19,19 @@ env:
 
 before_install:
   - mkdir test/
+  - mkdir -p build/logs
   - composer self-update
 
 install:
-  - composer selfupdate
   - composer install
   - bin/mage-ci install magento/"$MAGE" $MAGE test`echo $MAGE|sed -e 's/[\.]//g'` -c -t -r http://mage-ci.magedev.ru
-  - bash < <(wget -q --no-check-certificate -O - https://raw.github.com/colinmollenhour/modman/master/modman-installer)
   - cd magento/"$MAGE"
-  - modman init
+  - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
+  - chmod +x modman
+  - ./modman init
+  - composer update --ignore-platform-reqs
 
 before_script:
-  - composer update --ignore-platform-reqs
-  - mkdir -p build/logs
   - pear install PHP_CodeSniffer
   - phpenv rehash
   - hhvm $(which composer) update
