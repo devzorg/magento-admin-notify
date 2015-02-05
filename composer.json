@@ -6,7 +6,8 @@
     "homepage":"http://magedev.ru/",
     "keywords": ["magento", "admin", "notify", "notifies"],
     "require": {
-        "magento-hackathon/magento-composer-installer": "*"
+        "magento-hackathon/magento-composer-installer": "*",
+        "composer/installers": "~1.0"
     },
     "require-dev": {
         "ecomdev/mage-ci": "master-dev"
