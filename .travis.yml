@@ -17,6 +17,8 @@ env:
 
 before_install:
   - mkdir test/
+  - composer self-update
+  - composer update
   - composer install --dev
   - curl https://gordonlesti.com/"$MAGE".tar.gz | tar xz
   - mv $MAGE magento

@@ -9,7 +9,6 @@
         "magento-hackathon/magento-composer-installer": "*"
     },
     "require-dev": {
-        //"ecomdev/ecomdev_phpunit": "*",
         "ecomdev/mage-ci": "master-dev"
     },
     "repositories": [
