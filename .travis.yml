@@ -18,7 +18,6 @@ env:
 before_install:
   - mkdir test/
   - composer self-update
-  - mv $MAGE magento
 
 install:
   - composer install --dev
