@@ -9,11 +9,11 @@ php:
 #  - hhvm
 
 env:
-  - MAGE=magento-1-9-1-0
-#  - MAGE=magento-1-8-1-0
-#  - MAGE=magento-1-7-0-2
-#  - MAGE=magento-1-6-2-0
-#  - MAGE=magento-1-5-1-0
+  - MAGE=1.9.1.0
+#  - MAGE=1.8.1.0
+#  - MAGE=1.7.0.2
+#  - MAGE=1.6.2.0
+#  - MAGE=1.5.1.0
 
 before_install:
   - mkdir test/
@@ -22,7 +22,7 @@ before_install:
 install:
   - composer install --dev
 #  - curl https://gordonlesti.com/"$MAGE".tar.gz | tar xz
-  - bin/mage-ci install magento/$MAGE "$MAGE" test"$MAGE" -c -t -r http://mage-ci.ecomdev.org
+  - bin/mage-ci install magento/$MAGE $MAGE test"$MAGE" -c -t -r http://mage-ci.ecomdev.org
   - cd magento/$MAGE
   - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
   - chmod +x modman
