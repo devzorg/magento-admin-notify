@@ -15,28 +15,29 @@ env:
   - MAGE=magento-1-7-0-2
   - MAGE=magento-1-6-2-0
   - MAGE=magento-1-5-1-0
+
 before_install:
   - mkdir test/
   - composer install --dev
+  - curl https://gordonlesti.com/"$MAGE".tar.gz | tar xz
+  - mv $MAGE magento
+
+install:
+  - bin/mage-ci install magento/$MAGE "$MAGE" mage_$MAGE -c -t -r http://mage-ci.ecomdev.org
+  - cd magento/$MAGE
+  - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
+  - chmod +x modman
+  - ./modman init
+  - cd ..
 
 before_script:
-http://www.magentocommerce.com/downloads/assets/1.9.1.0/magento-1.9.1.0.tar.gz
+#http://www.magentocommerce.com/downloads/assets/1.9.1.0/magento-1.9.1.0.tar.gz
   - composer selfupdate
   - composer update
-  - bin/ci.sh
-  - cd $TRAVIS_BUILD_DIR/public
-
-before_script:
-  - CURR_DIR=$(pwd)
   - mkdir -p build/logs
-  - mysql -e 'create database `magento`;'
-  - mysql -utravis magento < magento/var/magento.sql
-  - mysql -e 'create database `magento_test`;'
-  - mysql -utravis magento_test < magento/var/magento_test.sql
-  - cd magento
-  - ./modman link ./../../Lesti_Fpc
-  - ./modman clone https://github.com/EcomDev/EcomDev_PHPUnit.git
-  - cd ..
+#  - cd magento
+#  - ./modman clone https://github.com/EcomDev/EcomDev_PHPUnit.git
+#  - cd ..
 
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use
@@ -53,4 +54,3 @@ after_script:
 notifications:
   email:
       - "builds@magedev.ru"
-  #irc: "chat.freenode.net#magetest"
